@@ -8,16 +8,16 @@ let computerDraw=0;         // computerDraw - the value of computer´s card.
 let computerScore=0;        // computerScore - the sum of computer´s cards. 
 
 /**
- * @description it generate a random number and return it back
+ * @desc it generate a random number and return it back
  * @returns a random number between 1 to 11
  */
   function randomNumber() {  
-      var rNumber = Math.floor((Math.random()*11)+1);  
+      let rNumber = Math.floor((Math.random()*11)+1);  
    return rNumber;
  };
 
 /**
- * @description logged the result of the drawn card and added it to the score
+ * @desc logged the result of the drawn card and added it to the score
  *              of the player and logged it.
  */
 function playerDraws() {
@@ -28,7 +28,7 @@ function playerDraws() {
 };
 
 /**
- * @description logged the result of the drawn card and aded it to the score
+ * @desc logged the result of the drawn card and aded it to the score
  *               of the computer and logged it.
  */
 function computerDraws() {
@@ -51,7 +51,7 @@ function resetGame() {
 }
 
 /**
- * @description gives the result of the sum of card´s drawn 
+ * @desc gives the result of the sum of card´s drawn 
  * @returns the score of both the player and computer
  */
 function winGame() {    
@@ -60,7 +60,7 @@ function winGame() {
 };
 
 /**
- * @description compare the sum of card´s of player and computer
+ * @desc compare the sum of card´s of player and computer
  *              alert the winner or a draw and call winGame function.
  */
 function compareResult() {
@@ -133,7 +133,7 @@ function endGame() {
 }
 
 /**
- * @description if player presses keyD, player draw a card and computer draw two cards, compare the result
+ * @desc if player presses keyD, player draw a card and computer draw two cards, compare the result
  *              if player press keyS, the computer draw a card, if his score is less than 17 
  *              otherwise alert message of the result and the winner
  *              the game ends and alert message says to start again 
