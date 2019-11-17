@@ -23,7 +23,7 @@ let computerScore=0;        // computerScore - the sum of computer´s cards.
 function playerDraws() {
      playerDraw =  randomNumber();
     playerScore += playerDraw;
-    console.log('Player drew ' + playerDraw +'\n' + ' player score :'+ playerScore );
+    console.log('Player drew  ' + playerDraw +'\n' + ' player score = '+ playerScore );
     
 };
 
@@ -34,7 +34,7 @@ function playerDraws() {
 function computerDraws() {
     computerDraw =  randomNumber();
    computerScore += computerDraw;
-   console.log('Computer drew ' + computerDraw +'\n' + ' computer score :' + computerScore);
+   console.log('Computer drew  ' + computerDraw +'\n' + ' computer score = ' + computerScore);
    
 };
 
