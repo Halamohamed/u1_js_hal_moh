@@ -69,7 +69,8 @@ function compareResult() {
         resetGame();
 
     }
-    else if((playerScore == computerScore )){
+    else if ((playerScore < 21) && (computerScore < 21)){
+        if((playerScore == computerScore ))
         alert( 'It is draw'+ '\n' + winGame());
         resetGame(); 
 
@@ -105,10 +106,12 @@ function compareScore() {
     else if(playerScore > 21){
         computerWinner();
     }
-    else{
-        compareResult();
+    else if((playerScore == 21) ||(computerScore == 21)){
+        alert('congratulation you winner!'+ '\n' + winGame());
+        resetGame();
 
     }
+
 }
 
 /**
@@ -117,18 +120,27 @@ function compareScore() {
  *      and call the winGame function. 
  */
 function endGame() {
-    if(playerScore > computerScore){
-        playerWinner();
-
-    }
-    else if (playerScore == computerScore){
-        alert('It is draw' + '\n' + winGame());
+    if((playerScore == 21) ||(computerScore == 21)){
+        alert('congratulation you winner!'+ '\n' + winGame());
         resetGame();
-        
+    }
+    else if ((playerScore < 21) && (computerScore < 21)){
+        if((playerScore === computerScore )){
+        alert( 'It is draw'+ '\n' + winGame());
+        resetGame();
+        } 
+        else if(playerScore > computerScore){
+        playerWinner();
+        }
+        else if(computerScore > playerScore){
+        computerWinner();
+        }
+    }    
+    else if(playerScore > computerScore){
+        playerWinner();
     }
     else if(computerScore > playerScore){
         computerWinner();
-        
     }
 }
 
@@ -148,14 +160,15 @@ window.addEventListener("keydown", function(event){
         }
         else{            
             playerDraws();
+            compareScore();
             computerDraws();
             compareScore();
+            
         }
   
     } else if (event.code === 'KeyS') {
         if(computerScore < 17 && playerScore !== 0){
             computerDraws();
-            compareScore();
             endGame();
         }
         else{
