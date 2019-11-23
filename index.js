@@ -34,7 +34,7 @@ function playerDraws() {
 function computerDraws() {
     computerDraw =  randomNumber();
    computerScore += computerDraw;
-   console.log('Computer drew  ' + computerDraw +'\n' + ' computer score = ' + computerScore);
+   console.log('computer drew  ' + computerDraw +'\n' + ' computer score = ' + computerScore);
    
 };
 
@@ -45,7 +45,7 @@ function computerDraws() {
 function resetGame() {
     playerScore = 0;
     computerScore = 0;
-    alert('To start again!, press "D" ');
+    alert('To Play again!, press "D" ');
     console.clear();
     
 }
@@ -55,33 +55,15 @@ function resetGame() {
  * @returns the score of both the player and computer
  */
 function winGame() {    
-    return('Player score : '+ playerScore + '\n' +'computer score : '+ computerScore) ;
+    return('Computer score : '+ computerScore + '\nPlayer score : '+ playerScore ) ;
 
-};
-
-/**
- * @desc compare the sum of card´s of player and computer
- *              alert the winner or a draw and call winGame function.
- */
-function compareResult() {
-    if((playerScore == 21) ||(computerScore == 21)){
-        alert('congratulation you winner!'+ '\n' + winGame());
-        resetGame();
-
-    }
-    else if ((playerScore < 21) && (computerScore < 21)){
-        if((playerScore == computerScore ))
-        alert( 'It is draw'+ '\n' + winGame());
-        resetGame(); 
-
-    }    
 };
 
 /**
  * @desc alert that the player winner and call the winGame function.
  */
 function playerWinner() {
-    alert('player winner \n' + winGame());
+    alert('Player winner! \n' + winGame());
     resetGame();
     
 }
@@ -90,7 +72,7 @@ function playerWinner() {
  * @desc alert that the computer winner and call the winGame function.
  */
 function computerWinner() {
-    alert('computer winner \n' + winGame());
+    alert('Computer winner! \n' + winGame());
     resetGame();
     
 }
@@ -104,10 +86,11 @@ function compareScore() {
         playerWinner();
     }
     else if(playerScore > 21){
-        computerWinner();
+        alert('Haha you loose!\n'+ winGame());
+        resetGame();
     }
     else if((playerScore == 21) ||(computerScore == 21)){
-        alert('congratulation you winner!'+ '\n' + winGame());
+        alert('Congratulations you win!'+ '\n' + winGame());
         resetGame();
 
     }
@@ -120,20 +103,27 @@ function compareScore() {
  *      and call the winGame function. 
  */
 function endGame() {
-    if((playerScore == 21) ||(computerScore == 21)){
-        alert('congratulation you winner!'+ '\n' + winGame());
+    if((playerScore === 21) ||(computerScore === 21)){
+        alert('Congratulations you win!'+ '\n' + winGame());
+        resetGame();
+    }
+    else if(computerScore> 21){
+        playerWinner();
+    }
+    else if(playerScore > 21){
+        alert('Haha you loose!\n'+ winGame());
         resetGame();
     }
     else if ((playerScore < 21) && (computerScore < 21)){
         if((playerScore === computerScore )){
-        alert( 'It is draw'+ '\n' + winGame());
-        resetGame();
+            alert( 'It is a Draw!'+ '\n' + winGame());
+            resetGame();
         } 
         else if(playerScore > computerScore){
-        playerWinner();
+            playerWinner();
         }
         else if(computerScore > playerScore){
-        computerWinner();
+            computerWinner();
         }
     }    
     else if(playerScore > computerScore){
@@ -161,13 +151,12 @@ window.addEventListener("keydown", function(event){
         else{            
             playerDraws();
             compareScore();
-            computerDraws();
-            compareScore();
             
         }
   
     } else if (event.code === 'KeyS') {
         if(computerScore < 17 && playerScore !== 0){
+            console.log('Player stopped!');
             computerDraws();
             endGame();
         }
